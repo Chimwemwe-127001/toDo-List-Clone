@@ -58,21 +58,10 @@ export default class List {
     }
   }
 
-  sort() {
-    this.list.sort((a, b) => {
-      const keyA = a.index;
-      const keyB = b.index;
-      if (keyA < keyB) return -1;
-      if (keyA > keyB) return 1;
-      return 0;
-    });
-  }
-
   saveActivities() {
     this.list.forEach((task, index) => {
       this.list[index].index = index;
     });
-    this.sort();
     localStorage.setItem('todo-list', JSON.stringify(this.list));
   }
 
